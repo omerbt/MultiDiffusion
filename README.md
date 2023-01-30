@@ -17,6 +17,7 @@
 
 For more see the [project webpage](https://multidiffusion.github.io).
 
+## Official code will be soon released!
 
 ## Citation
 ```
