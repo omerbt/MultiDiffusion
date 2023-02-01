@@ -91,13 +91,6 @@ class MultiDiffusion(nn.Module):
         return imgs
 
     @torch.no_grad()
-    def encode_imgs(self, imgs):
-        imgs = 2 * imgs - 1
-        posterior = self.vae.encode(imgs).latent_dist
-        latents = posterior.sample() * 0.18215
-        return latents
-
-    @torch.no_grad()
     def text2panorama(self, prompts, negative_prompts='', height=512, width=2048, num_inference_steps=50,
                       guidance_scale=7.5):
 
