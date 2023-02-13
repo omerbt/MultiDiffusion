@@ -41,7 +41,6 @@ class MultiDiffusion(nn.Module):
         self.sd_version = sd_version
 
         print(f'[INFO] loading stable diffusion...')
-        hf_key = 'riffusion/riffusion-model-v1'
         if hf_key is not None:
             print(f'[INFO] using hugging face custom model key: {hf_key}')
             model_key = hf_key
