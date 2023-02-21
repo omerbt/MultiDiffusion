@@ -19,7 +19,7 @@
 For more see the [project webpage](https://multidiffusion.github.io).
 
 ## Diffusers Integration
-MultiDiffusion Text2Panorama is integrated into the [Diffusers](https://huggingface.co/docs/diffusers/main/en/api/pipelines/stable_diffusion/panorama), and can be run as follows:
+MultiDiffusion Text2Panorama is integrated into [diffusers](https://huggingface.co/docs/diffusers/main/en/api/pipelines/stable_diffusion/panorama), and can be run as follows:
 ```
 import torch
 from diffusers import StableDiffusionPanoramaPipeline, DDIMScheduler
