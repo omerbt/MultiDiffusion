@@ -126,8 +126,8 @@ class MultiDiffusion(nn.Module):
                     noise_pred = self.unet(latent_model_input, t, encoder_hidden_states=text_embeds)['sample']
 
                     # perform guidance
-                    noise_pred_uncond, noise_pred_text = noise_pred.chunk(2)
-                    noise_pred = noise_pred_text + guidance_scale * (noise_pred_text - noise_pred_uncond)
+                    noise_pred_uncond, noise_pred_cond = noise_pred.chunk(2)
+                    noise_pred = noise_pred_uncond + guidance_scale * (noise_pred_cond - noise_pred_uncond)
 
                     # compute the denoising step with the reference model
                     latents_view_denoised = self.scheduler.step(noise_pred, t, latent_view)['prev_sample']
