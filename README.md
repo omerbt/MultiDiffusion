@@ -18,7 +18,7 @@
 
 For more see the [project webpage](https://multidiffusion.github.io).
 
-## Diffusers Integration
+## Diffusers Integration [![Open In Colab](https://colab.research.google.com/assets/colab-badge.svg)](https://colab.research.google.com/github/omerbt/MultiDiffusion/blob/master/MultiDiffusion_Panorama.ipynb)
 MultiDiffusion Text2Panorama is integrated into [diffusers](https://huggingface.co/docs/diffusers/main/en/api/pipelines/stable_diffusion/panorama), and can be run as follows:
 ```
 import torch
