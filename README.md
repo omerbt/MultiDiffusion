@@ -10,7 +10,7 @@
 
 ![teaser](imgs/teaser.jpg)
 
-**MultiDiffusion** is a unified framework that enables versatile and controllable image generation, using a pre-trained text-to-image diffusion model, without any further training or finetuning, as described in <a href="https://arxiv.org/abs/" target="_blank">(link to paper)</a>.
+**MultiDiffusion** is a unified framework that enables versatile and controllable image generation, using a pre-trained text-to-image diffusion model, without any further training or finetuning, as described in <a href="https://arxiv.org/abs/2302.08113" target="_blank">(link to paper)</a>.
 
 [//]: # (. It can be used for localized and global edits that change the texture of existing objects or augment the scene with semi-transparent effects &#40;e.g. smoke, fire, snow&#41;.)
 
@@ -36,6 +36,13 @@ pipe = pipe.to("cuda")
 prompt = "a photo of the dolomites"
 image = pipe(prompt).images[0]
 ```
+
+## Gradio Demo 
+We provide a gradio UI for our method. Running the following command in a terminal will launch the demo:
+```
+python app_gradio.py
+```
+This demo is also hosted on HuggingFace [here](https://huggingface.co/spaces/weizmannscience/MultiDiffusion)
 
 ## Spatial controls code will be soon released!
 
