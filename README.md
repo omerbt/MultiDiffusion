@@ -44,7 +44,9 @@ python app_gradio.py
 ```
 This demo is also hosted on HuggingFace [here](https://huggingface.co/spaces/weizmannscience/MultiDiffusion)
 
-## Spatial controls code will be soon released!
+## Spatial controls
+
+A web demo for the spatial controls is hosted on HuggingFace [here](https://huggingface.co/spaces/weizmannscience/multidiffusion-region-based).
 
 ## Citation
 ```
