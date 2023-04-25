@@ -1,4 +1,4 @@
-# MultiDiffusion: Fusing Diffusion Paths for Controlled Image Generation
+# MultiDiffusion: Fusing Diffusion Paths for Controlled Image Generation (ICML 2023)
 ## [<a href="https://multidiffusion.github.io/" target="_blank">Project Page</a>]
 
 [![arXiv](https://img.shields.io/badge/arXiv-MultiDiffusion-b31b1b.svg)](https://arxiv.org/abs/2302.08113)
