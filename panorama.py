@@ -8,7 +8,7 @@ import torch
 import torch.nn as nn
 import torchvision.transforms as T
 import argparse
-
+from tqdm import tqdm
 
 def seed_everything(seed):
     torch.manual_seed(seed)
@@ -111,7 +111,7 @@ class MultiDiffusion(nn.Module):
         self.scheduler.set_timesteps(num_inference_steps)
 
         with torch.autocast('cuda'):
-            for i, t in enumerate(self.scheduler.timesteps):
+            for i, t in enumerate(tqdm(self.scheduler.timesteps)):
                 count.zero_()
                 value.zero_()
 
@@ -153,6 +153,7 @@ if __name__ == '__main__':
     parser.add_argument('--W', type=int, default=4096)
     parser.add_argument('--seed', type=int, default=0)
     parser.add_argument('--steps', type=int, default=50)
+    parser.add_argument('--outfile', type=str, default='out.png')
     opt = parser.parse_args()
 
     seed_everything(opt.seed)
@@ -164,4 +165,4 @@ if __name__ == '__main__':
     img = sd.text2panorama(opt.prompt, opt.negative, opt.H, opt.W, opt.steps)
 
     # save image
-    img.save('out.png')
+    img.save(opt.outfile)
