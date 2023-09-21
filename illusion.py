@@ -13,17 +13,26 @@ import argparse
 def center_crop_resize(img, output_size=(512, 512)):
     width, height = img.size
 
-    # Calculate dimensions to crop to the center
-    new_dimension = min(width, height)
-    left = (width - new_dimension) / 2
-    top = (height - new_dimension) / 2
-    right = (width + new_dimension) / 2
-    bottom = (height + new_dimension) / 2
+    aspect_orig = width/height;
+    aspect_dest = output_size[0]/output_size[1]
+
+    if(aspect_orig > aspect_dest):
+        # input is too wide, scale based on height and trim left/right
+        new_height = img.height
+        new_width = int(img.height * aspect_dest)
+    else:
+        # input is too tall, scale based on width and trip top/bottom
+        new_width = img.width
+        new_height = int(img.width / aspect_dest)
+
+    left = (width - new_width) / 2
+    top = (height - new_height) / 2
+    right = (width + new_width) / 2
+    bottom = (height + new_height) / 2
 
     # Crop and resize
     img = img.crop((left, top, right, bottom))
     img = img.resize(output_size)
-
     return img
 
 
