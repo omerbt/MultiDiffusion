@@ -8,7 +8,7 @@ import torch
 import torch.nn as nn
 import torchvision.transforms as T
 import argparse
-
+from tqdm import tqdm
 
 def seed_everything(seed):
     torch.manual_seed(seed)
@@ -111,7 +111,7 @@ class MultiDiffusion(nn.Module):
         self.scheduler.set_timesteps(num_inference_steps)
 
         with torch.autocast('cuda'):
-            for i, t in enumerate(self.scheduler.timesteps):
+            for i, t in enumerate(tqdm(self.scheduler.timesteps)):
                 count.zero_()
                 value.zero_()
 
