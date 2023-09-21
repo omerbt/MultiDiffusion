@@ -29,7 +29,7 @@ def center_crop_resize(img, output_size=(512, 512)):
 
 if __name__ == '__main__':
     parser = argparse.ArgumentParser()
-    parser.add_argument('--prompt', type=str, required=True)
+    parser.add_argument('--prompt', type=str, default="Medieval village scene with busy streets and castle in the distance")
     parser.add_argument('--controlnet_img', type=str, default="pano_pattern.png")
     parser.add_argument('--negative_prompt', type=str, default='low quality')
     # controls the fidelity to the controlnet signal. May have to be adjusted depending on the input
@@ -40,6 +40,7 @@ if __name__ == '__main__':
     parser.add_argument('--steps', type=int, default=30)
     parser.add_argument('--seed', type=int, default=-1)
     parser.add_argument('--stride', type=int, default=64)
+    parser.add_argument('--outfile', type=str, default='out.png')
     opt = parser.parse_args()
 
     h, w = opt.H, opt.W
@@ -72,4 +73,4 @@ if __name__ == '__main__':
         width=w,
         stride=opt.stride // 8
     ).images[0]
-    out.save("out.png")
+    out.save(opt.outfile)
